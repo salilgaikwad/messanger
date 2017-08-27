@@ -1,0 +1,41 @@
+<div class="col-sm-12">
+      
+  <h1>Sent Messages</h1>
+
+  <table  class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>To</th>
+        <th>Sent at</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @messages.each do |message| %>
+        <tr class="<%= 'error' unless message.read %>">
+          <td><%= message.title %></td>
+          <td><%= message.recipient.full_name %></td>
+          <td><%= message.created_at %></td>
+          <td><%= link_to 'Show', message %></td>
+          <td>
+            <% unless message.read %>
+              <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>      
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Message', new_message_path %> | 
+  <%= link_to 'Inbox', inbox_messages_path %> |
+  <%= link_to 'Back', messages_path %>
+</div>
+
+
+
+

@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: messanger_admin
+  password: test123
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: messanger_dev
+
+test:
+  <<: *default
+  database: messanger_test
+
+production:
+  <<: *default
+  database: messanger_production
+  username: messanger
+  password: <%= ENV['MESSANGER_DATABASE_PASSWORD'] %>

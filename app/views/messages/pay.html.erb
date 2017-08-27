@@ -1,0 +1,24 @@
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+  <h1>Pay User</h1>
+  <% if @recipients.present? %>
+    
+    <%= form_for :pay, url: pay_user_messages_url do |f| %>
+      <div class="form-group">
+        Payee<br>
+        <%= select_tag :recipient_id, options_from_collection_for_select(@recipients, 'id', 'email'), class: "form-control" %>
+      </div>
+      <div class="form-group">
+        Amount (in cents)<br>
+        <%= number_field_tag :amount, '', class: "form-control", min: 500 %>
+      </div>
+      <div class="actions">
+        <%= submit_tag 'Submit', class: 'btn btn-primary' %>        
+      </div>
+    <% end %>
+  <% else %>
+    Currently no user is available for the payment.
+  <% end %>
+  <%= link_to 'Back', messages_path %>
+</div>
+<div class="col-sm-3"></div>

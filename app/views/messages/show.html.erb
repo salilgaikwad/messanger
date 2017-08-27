@@ -1,0 +1,33 @@
+<div class="col-sm-3"></div>
+<div class="col-sm-6">      
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= @message.title %></div>
+    <div class="panel-body">
+      
+      <% if @message.recipient?(current_user.id) %>
+        <p>
+          <strong>From:</strong>
+          <%=  @message.sender.full_name %><strong> at </strong><%= @message.created_at %>
+        </p>
+      <% end %>
+
+      <% if @message.sender?(current_user.id) %>
+        <p>
+          <strong>To:</strong>
+          <%= @message.recipient.full_name %><strong> at </strong><%= @message.created_at %>
+        </p>
+      <% end %>
+
+      <p>
+        <strong>Content:</strong>
+        <%= @message.content %>
+      </p>
+    </div>
+  </div>
+  <%= link_to 'Back', messages_path %>
+</div>
+<div class="col-sm-3"></div>
+
+
+
+

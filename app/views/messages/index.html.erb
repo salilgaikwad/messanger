@@ -1,0 +1,9 @@
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+  <%= link_to 'Inbox', inbox_messages_path, class: 'btn btn-primary' %>
+  <%= link_to 'Sent Message', sent_messages_path, class: 'btn btn-primary' %>
+  <%= link_to 'New Message', new_message_path, class: 'btn btn-primary' %>
+  <%= link_to 'Pay', pay_messages_path, class: 'btn btn-primary' %>
+  <%= link_to 'Account Settings', edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+</div>
+<div class="col-sm-3"></div>
