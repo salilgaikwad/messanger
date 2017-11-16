@@ -10,6 +10,8 @@ class Message < ActiveRecord::Base
   
   before_destroy :check_before_deletion 
 
+  scope :unread, -> {where(read: true)}
+
 
   def mark_as_read(user)
     return if read || !recipient?(user.id)

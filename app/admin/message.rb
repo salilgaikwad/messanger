@@ -6,11 +6,14 @@ ActiveAdmin.register Message do
 #
 # or
 #
-permit_params do
-  permitted = [:title, :content, :sender_id, :recipient_id, :read]
-  #permitted << :other if params[:action] == 'create' && current_user.admin?
-  permitted
-end
+
+scope :unread
+
+# permit_params do
+#   permitted = [:title, :content, :sender_id, :recipient_id, :read]
+#   #permitted << :other if params[:action] == 'create' && current_user.admin?
+#   permitted
+# end
 
   index do 
     column :id
