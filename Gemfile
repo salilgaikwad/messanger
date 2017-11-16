@@ -13,6 +13,8 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'activeadmin'
+
 gem 'stripe'
 
 gem 'dotenv-rails', :groups => [:development, :test]
